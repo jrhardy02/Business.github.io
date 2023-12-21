@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Business</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .team-member {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Fake Business</h1>
+    </header>
+
+    <main>
+        <section id="about">
+            <h2>About Us</h2>
+            <p>Welcome to Fake Business! We are dedicated to providing innovative solutions and excellent services to our
+                clients.</p>
+        </section>
+
+        <section id="team">
+            <h2>Meet the Team</h2>
+            <div id="team-members"></div>
+        </section>
+    </main>
+
+    <footer>
+        <h3>Contact Us</h3>
+        <form id="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+            <br>
+            <label for="message">Message:</label>
+            <textarea id="message" required></textarea>
+            <br>
+            <button type="button" onclick="submitForm()">Submit</button>
+        </form>
+    </footer>
+
+    <script>
+        const teamMembers = [
+            //Data from JSON
+            {"first_name":"Martainn","last_name":"Bubeer","email":"mbubeer0@reddit.com","avatar":"https://robohash.org/quovoluptasatque.png?size=50x50&set=set1","department":"Support"},
+            {"first_name":"Marlo","last_name":"Walthall","email":"mwalthall1@timesonline.co.uk","avatar":"https://robohash.org/iureinab.png?size=50x50&set=set1","department":"Research and Development"},
+            {"first_name":"Phyllys","last_name":"Fidoe","email":"pfidoe2@amazon.co.jp","avatar":"https://robohash.org/dolorexplicabomolestiae.png?size=50x50&set=set1","department":"Product Management"},
+            {"first_name":"Kienan","last_name":"Tregonna","email":"ktregonna3@prweb.com","avatar":"https://robohash.org/quiaetest.png?size=50x50&set=set1","department":"Services"},
+            {"first_name":"Clayborne","last_name":"Harvison","email":"charvison4@gmpg.org","avatar":"https://robohash.org/consequunturdebitisasperiores.png?size=50x50&set=set1","department":"Human Resources"},
+            {"first_name":"Hailey","last_name":"Roach","email":"hroach5@cdbaby.com","avatar":"https://robohash.org/inblanditiisquisquam.png?size=50x50&set=set1","department":"Training"},
+            {"first_name":"Lowe","last_name":"Dibnah","email":"ldibnah6@comsenz.com","avatar":"https://robohash.org/etevenietsit.png?size=50x50&set=set1","department":"Support"},
+            {"first_name":"Yorker","last_name":"Mapp","email":"ymapp7@dyndns.org","avatar":"https://robohash.org/sapientevoluptatumomnis.png?size=50x50&set=set1","department":"Legal"},
+            {"first_name":"Barrett","last_name":"Antecki","email":"bantecki8@ca.gov","avatar":"https://robohash.org/distinctiolaborerepudiandae.png?size=50x50&set=set1","department":"Human Resources"},
+            {"first_name":"Shawna","last_name":"Cheston","email":"scheston9@umn.edu","avatar":"https://robohash.org/nisisedplaceat.png?size=50x50&set=set1","department":"Legal"}
+        ];
+
+        function generateTeam() {
+            const teamContainer = document.getElementById('team-members');
+
+            teamMembers.forEach(member => {
+                const memberDiv = document.createElement('div');
+                memberDiv.className = 'team-member';
+                memberDiv.innerHTML = `
+                    <img src="${member.avatar}" alt="${member.first_name}" style="border-radius: 50%;">
+                    <h3>${member.first_name} ${member.last_name}</h3>
+                    <p>Email: ${member.email}</p>
+                    <p>Department: ${member.department}</p>
+                `;
+                teamContainer.appendChild(memberDiv);
+            });
+        }
+
+        function submitForm() {
+            const name = document.getElementById('name').value;
+            const message = document.getElementById('message').value;
+
+            const currentDate = new Date();
+            console.log(`Message from ${name} at ${currentDate}: ${message}`);
+
+            // You can add logic here to send the data to a server or perform other actions.
+        }
+
+        generateTeam();
+    </script>
+</body>
+
+</html>
